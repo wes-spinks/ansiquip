@@ -3,7 +3,7 @@
 Custom Ansible module for Quip document manipulation
 
 ## Getting started
-1. `git clone git@gitlab.corp.redhat.com:GES/ansiquip.git; cd ansiquip`
+1. `git clone https://github.com/wes-spinks/ansiquip.git; cd ansiquip`
 2. replace vaulted Quip access token `vim roles/ansiquip/vars/main.yml`
    - `ansible-vault encrypt_string '<YOUR_TOKEN>' --name quip_token`
 3. open the playbook (`vim example.yml`) and update the variables:
@@ -24,19 +24,19 @@ changed: [localhost] => {
         "module_args": {
             "base_api_url": "https://platform.quip.com",
             "destination_urls": [
-                "https://redhat.quip.com/ONIYAy50FPdb/Ansible-Sample-Ecosystem-Table",
+                "https://<team>.quip.com/ONIYAy50FPdB/Ansible-Demo-Doc",
                 "working.example.quip.com/ZZZZZZZZZZ/VERY-REAL-DOC"
             ],
             "source_section_id": "temp:C:JbVf61bd87474cb45928fb4e7a4b",
-            "source_url": "https://redhat.quip.com/E81RAI6kLz80/Ansible-DEMO-Ecosystem-Source-Table",
-            "target_header": "Ansible Sample Ecosystem Update Table",
+            "source_url": "https://<team>.quip.com/E81RAI6kLz88/DEMO-Source-Table",
+            "target_header": "Sample Quip Update",
             "token": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
         }
     },
     "message": "1 of 2 Quip documents were updated successfully",
-    "original_message": "Pasting redhat.quip.com/E81RAI6kLz80#temp:C:JbVf61bd87474cb45928fb4e7a4b to: ['quip.com/ONIYAy50FPdb#temp:C:eTU1c352fa2b0654896ada4348b7']",
+    "original_message": "Pasting <team>.quip.com/E81RAI6kLz88#temp:C:JbVf61bd87474cb45928fb4e7a4b to: ['quip.com/ONIYAy50FPdB#temp:C:eTU1c352fa2b0654896ada4348b7']",
     "successful": [
-        "quip.com/ONIYAy50FPdb#temp:C:eTU1c352fa2b0654896ada4348b7"
+        "quip.com/ONIYAy50FPdB#temp:C:eTU1c352fa2b0654896ada4348b7"
     ],
     "unsuccessful": [
         "quip.com/ZZZZZZZZZZ"
