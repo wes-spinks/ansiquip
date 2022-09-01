@@ -3,30 +3,27 @@
   gather_facts: False
   connection: local
 
-  roles:
-    - ansiquip
-
   tasks:
   - name: Perform a live-paste from Quip Source to Quip Destinations
     quip_paste:
       token: "{{ quip_token }}" 
       base_api_url: 'https://platform.quip.com'
-      source_url: 'https://redhat.quip.com/E81RAI6kLz80/Ansible-DEMO-Ecosystem-Source-Table'
-      source_section_id: 'temp:C:JbVf61bd87474cb45928fb4e7a4b'
+      source_url: 'https://<sub-domain>.quip.com/<document-id>/<document-name>'
+      source_section_id: '<source-data-id>'
       destination_urls:
-        - https://redhat.quip.com/ONIYAy50FPdb/Ansible-Sample-Ecosystem-Table
-        - redhat.quip.com/tc4KA6Z2pNMY/Untitled
-        - working.example.quip.com/ZZZZZZZZZZ/VERY-REAL-DOC
-        - not.a.working.example.com/EXPECTEDFAIL/missing-quip-dotcom
-      target_header: "NPS Score"
+        - https://<sub-domain>.quip.com/<document-id>/<document-name>
+        - redhat.quip.com/<doc-id>/<doc-name>
+        - not-working-example.quip.com/ZZZZZZZZZZ/NOT-REAL-DOC
+      target_header: "Welcome to Quip"
+      prepend: False
 
   - name: Use quip_update_cell to update the cell text in a Quip table
     quip_update_cell:
       token: "{{ quip_token }}" 
-      find: 'CHANGE HERE'
-      replace: 'HELLO WORLD'
-      markdown: 'italic'
+      find: 'Number'
+      replace: 'Contact'
+      markdown: 'bold'
       quip_urls:
-        - redhat.quip.com/tc4KA6Z2pNMY/Untitled
+        - <sub-domain>.quip.com/<document-id>/<document-name>
         - not.a.working.example.com/EXPECTEDFAIL/missing-quip-dotcom
 ...
