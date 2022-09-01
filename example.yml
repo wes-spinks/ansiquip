@@ -16,14 +16,4 @@
         - not-working-example.quip.com/ZZZZZZZZZZ/NOT-REAL-DOC
       target_header: "Welcome to Quip"
       prepend: False
-
-  - name: Use quip_update_cell to update the cell text in a Quip table
-    quip_update_cell:
-      token: "{{ quip_token }}" 
-      find: 'Number'
-      replace: 'Contact'
-      markdown: 'bold'
-      quip_urls:
-        - <sub-domain>.quip.com/<document-id>/<document-name>
-        - not.a.working.example.com/EXPECTEDFAIL/missing-quip-dotcom
 ...
