@@ -9,7 +9,6 @@ Custom Ansible module for Quip document manipulation
 3. open the playbook (`vim example.yml`) and update the variables:
    - update source table URL and `source_section_id`
    - add Quip destination URLs
-   - update `find`/`replace` vars for update_cell
    - update `target_header` var for live-paste
 4. `ansible-playbook -vvv --ask-vault-password example.yml` # run the demo
 
@@ -48,32 +47,4 @@ META: ran handlers
 
 PLAY RECAP ********************************************************************************************************************************************************************************
 localhost                  : ok=1    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-```
-   
-quip_update_cell
-```
-changed: [localhost] => {
-    "changed": true,
-    "invocation": {
-        "module_args": {
-            "base_api_url": "https://platform.quip.com",
-            "find": "hello world",
-            "markdown": "",
-            "quip_urls": [
-                "redhat.quip.com/tc4KA6Z2pNMY/Untitled",
-                "not.a.working.example.com/EXPECTEDFAIL/missing-quip-dotcom"
-            ],
-            "replace": "dev test",
-            "token": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER"
-        }
-    },
-    "message": "1 of 2 Quip documents were updated successfully",
-    "original_message": "Attempting find 'hello world' and replace with 'dev test' on the following Quip documents: ['tc4KA6Z2pNMY']",
-    "successful": [
-        "quip.com/tc4KA6Z2pNMY#temp:s:temp:C:XLda76c223e9c364b9886719d4db_temp:C:XLdc1de0692c830425fbe33484de"
-    ],
-    "unsuccessful": [
-        "not.a.working.example.com/EXPECTEDFAIL/missing-quip-dotcom"
-    ]
-}
 ```
