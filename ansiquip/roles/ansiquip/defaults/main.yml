@@ -1,0 +1,4 @@
+---
+# defaults file for ansiquip
+base_api_url: "https://platform.quip.com"
+...
