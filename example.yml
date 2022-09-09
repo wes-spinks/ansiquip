@@ -3,6 +3,9 @@
   gather_facts: False
   connection: local
 
+  roles:
+    - ansiquip
+
   tasks:
   - name: Perform a live-paste from Quip Source to Quip Destinations
     quip_paste:
